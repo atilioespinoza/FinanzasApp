@@ -18,7 +18,7 @@ export default function MainContentWrapper({ data, categories, monthlyStats }: {
                 <div className="flex p-1.5 bg-[#0a0a1a]/80 backdrop-blur-3xl rounded-[28px] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full md:w-fit">
                     <button
                         onClick={() => setActiveTab('activity')}
-                        className={`flex-1 md:flex-none flex items-center justify-center gap-2 px-4 md:px-6 py-3 md:py-2 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'activity'
+                        className={`flex-1 md:flex-none flex items-center justify-center gap-1.5 md:gap-2 px-2 md:px-6 py-3 md:py-2 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'activity'
                             ? 'text-white'
                             : 'text-slate-500 hover:text-slate-300'
                             }`}
@@ -35,7 +35,7 @@ export default function MainContentWrapper({ data, categories, monthlyStats }: {
                     </button>
                     <button
                         onClick={() => setActiveTab('metrics')}
-                        className={`flex-1 md:flex-none flex items-center justify-center gap-2 px-4 md:px-6 py-3 md:py-2 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'metrics'
+                        className={`flex-1 md:flex-none flex items-center justify-center gap-1.5 md:gap-2 px-2 md:px-6 py-3 md:py-2 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'metrics'
                             ? 'text-white'
                             : 'text-slate-500 hover:text-slate-300'
                             }`}
@@ -52,7 +52,7 @@ export default function MainContentWrapper({ data, categories, monthlyStats }: {
                     </button>
                     <button
                         onClick={() => setActiveTab('budgets')}
-                        className={`flex-1 md:flex-none flex items-center justify-center gap-2 px-4 md:px-6 py-3 md:py-2 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'budgets'
+                        className={`flex-1 md:flex-none flex items-center justify-center gap-1.5 md:gap-2 px-2 md:px-6 py-3 md:py-2 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'budgets'
                             ? 'text-white'
                             : 'text-slate-500 hover:text-slate-300'
                             }`}

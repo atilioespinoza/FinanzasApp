@@ -86,9 +86,9 @@ export default function TransactionForm() {
                         />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3">
-                        <div className="relative group/field">
-                            <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-blue-400 transition-colors" size={16} />
+                    <div className="grid grid-cols-2 gap-2">
+                        <div className="relative group/field min-w-0">
+                            <CreditCard className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-blue-400 transition-colors" size={14} />
                             <input
                                 required
                                 type="number"
@@ -97,17 +97,17 @@ export default function TransactionForm() {
                                 placeholder="0.00"
                                 value={formData.amount}
                                 onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-                                className="w-full bg-white/5 border border-white/10 rounded-2xl pl-11 pr-4 py-3.5 text-xs text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-black"
+                                className="w-full bg-white/5 border border-white/10 rounded-2xl pl-9 pr-3 py-3.5 text-xs text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all font-black min-w-0"
                             />
                         </div>
-                        <div className="relative group/field">
-                            <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-blue-400 transition-colors" size={16} />
+                        <div className="relative group/field min-w-0">
+                            <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within/field:text-blue-400 transition-colors" size={14} />
                             <input
                                 required
                                 type="date"
                                 value={formData.date}
                                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                                className="w-full bg-white/5 border border-white/10 rounded-2xl pl-11 pr-4 py-3.5 text-[10px] text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all [color-scheme:dark] font-bold"
+                                className="w-full bg-white/5 border border-white/10 rounded-2xl pl-9 pr-1 py-3.5 text-[10px] text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all [color-scheme:dark] font-bold min-w-0"
                             />
                         </div>
                     </div>
