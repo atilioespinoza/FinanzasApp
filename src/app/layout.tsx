@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   description: "Control financiero inteligente con IA",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover",
   themeColor: "#050510",
+  manifest: "/manifest.json",
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",

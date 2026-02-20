@@ -1,0 +1,17 @@
+{
+    "name": "Finanzas Pro",
+    "short_name": "Finanzas",
+    "description": "Control financiero inteligente con IA",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#050510",
+    "theme_color": "#050510",
+    "icons": [
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
