@@ -37,10 +37,10 @@ export default async function Home({
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Finance Pro v2.0</span>
               </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-slate-600 tracking-tighter">
+            <h1 className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-slate-600 tracking-tighter">
               Finanzas<span className="text-blue-500">.</span>
             </h1>
-            <p className="text-slate-500 text-lg font-medium">Control absoluto de tus activos con inteligencia artificial.</p>
+            <p className="text-slate-500 text-sm font-medium">Control absoluto de tus activos con inteligencia artificial.</p>
           </div>
           <div className="flex flex-col items-end gap-5">
             <DateRangeSelector />
@@ -67,12 +67,12 @@ export default async function Home({
               <div className="space-y-6">
                 <TransactionForm />
 
-                <div className="glass p-6 rounded-[32px] border border-blue-500/10 bg-blue-500/5 relative overflow-hidden group">
+                <div className="glass p-5 rounded-[28px] border border-blue-500/10 bg-blue-500/5 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                    <Sparkles size={40} />
+                    <Sparkles size={30} />
                   </div>
-                  <p className="text-[10px] uppercase font-black tracking-widest text-blue-400 mb-2">💡 Tip Inteligente</p>
-                  <p className="text-xs leading-relaxed text-slate-300 font-medium italic">
+                  <p className="text-[9px] uppercase font-black tracking-widest text-blue-400 mb-1.5">💡 Tip Inteligente</p>
+                  <p className="text-[10px] leading-relaxed text-slate-300 font-medium italic">
                     "La app recordará tus descripciones para categorizar al instante. Menos clicks, más control."
                   </p>
                 </div>

@@ -95,35 +95,32 @@ export default function AnalyticsDashboard({ data, monthlyStats }: { data: any, 
 
     return (
         <div className="space-y-12">
-            {/* Extended Metrics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Extended Metrics Grid - Compact for iPhone */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="glass p-6 rounded-[32px] flex flex-col relative overflow-hidden group"
+                    className="glass p-5 rounded-[28px] flex flex-col relative overflow-hidden group"
                 >
-                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4 text-blue-400">
-                        <Percent size={18} />
+                    <div className="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3 text-blue-400">
+                        <Percent size={16} />
                     </div>
-                    <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] mb-1">Tasa de Ahorro</p>
-                    <h3 className="text-3xl font-black text-white leading-tight">{savingsRate}%</h3>
-                    <div className="absolute -right-2 -bottom-2 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <Percent size={80} />
-                    </div>
+                    <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em] mb-1">Tasa de Ahorro</p>
+                    <h3 className="text-xl md:text-2xl font-black text-white leading-tight">{savingsRate}%</h3>
                 </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="glass p-6 rounded-[32px] flex flex-col relative overflow-hidden group"
+                    className="glass p-5 rounded-[28px] flex flex-col relative overflow-hidden group"
                 >
-                    <div className="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center mb-4 text-rose-400">
-                        <Activity size={18} />
+                    <div className="w-8 h-8 rounded-xl bg-rose-500/10 flex items-center justify-center mb-3 text-rose-400">
+                        <Activity size={16} />
                     </div>
-                    <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] mb-1">Gasto Prom. Diario</p>
-                    <h3 className="text-3xl font-black text-white leading-tight">
+                    <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em] mb-1">Gasto Diario</p>
+                    <h3 className="text-xl md:text-2xl font-black text-white leading-tight">
                         ${formatNumber(Math.round(expenses / (dailyData.length || 1)))}
                     </h3>
                 </motion.div>
@@ -132,13 +129,13 @@ export default function AnalyticsDashboard({ data, monthlyStats }: { data: any, 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="glass p-6 rounded-[32px] flex flex-col relative overflow-hidden group"
+                    className="glass p-5 rounded-[28px] flex flex-col relative overflow-hidden group"
                 >
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${Number(variation) <= 0 ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}`}>
-                        {Number(variation) <= 0 ? <TrendingUp size={18} /> : <TrendingDown size={18} />}
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center mb-3 ${Number(variation) <= 0 ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}`}>
+                        {Number(variation) <= 0 ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
                     </div>
-                    <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] mb-1">vs Ciclo Anterior</p>
-                    <h3 className="text-3xl font-black text-white leading-tight">
+                    <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em] mb-1">vs Ciclo Ant.</p>
+                    <h3 className="text-xl md:text-2xl font-black text-white leading-tight">
                         {variation ? `${variation}%` : '---'}
                     </h3>
                 </motion.div>
@@ -147,13 +144,13 @@ export default function AnalyticsDashboard({ data, monthlyStats }: { data: any, 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="glass p-6 rounded-[32px] flex flex-col relative overflow-hidden group"
+                    className="glass p-5 rounded-[28px] flex flex-col relative overflow-hidden group"
                 >
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4 text-emerald-400">
-                        <ArrowUpRight size={18} />
+                    <div className="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-3 text-emerald-400">
+                        <ArrowUpRight size={16} />
                     </div>
-                    <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] mb-1">Categoría Top</p>
-                    <h3 className="text-2xl font-black text-white leading-tight truncate">
+                    <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em] mb-1">Categoría Top</p>
+                    <h3 className="text-lg md:text-xl font-black text-white leading-tight truncate">
                         {categoryData.length > 0 ? categoryData.sort((a: any, b: any) => b.value - a.value)[0].name : 'N/A'}
                     </h3>
                 </motion.div>
