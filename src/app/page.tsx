@@ -44,14 +44,6 @@ export default async function Home({
           </div>
           <div className="flex flex-col items-end gap-5">
             <DateRangeSelector />
-            <div className="flex gap-4">
-              <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 border border-white/5 bg-white/5 py-2 px-4 rounded-2xl shadow-xl">
-                <Database size={12} /> Supabase
-              </div>
-              <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-400 border border-blue-500/10 bg-blue-500/5 py-2 px-4 rounded-2xl shadow-xl shadow-blue-500/10">
-                <Cpu size={12} /> Gemini Flash
-              </div>
-            </div>
           </div>
         </header>
 
@@ -65,7 +57,9 @@ export default async function Home({
           <div className="lg:col-span-4 order-1 lg:order-2">
             <div className="sticky top-12 space-y-10">
               <div className="space-y-6">
-                <TransactionForm />
+                <div className="hidden lg:block">
+                  <TransactionForm />
+                </div>
 
                 <div className="glass p-5 rounded-[28px] border border-blue-500/10 bg-blue-500/5 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">

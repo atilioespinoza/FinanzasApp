@@ -7,6 +7,7 @@ import Dashboard from '@/components/Dashboard';
 import AnalyticsDashboard from '@/components/AnalyticsDashboard';
 import AIReportSection from '@/components/AIReportSection';
 import BudgetControl from '@/components/BudgetControl';
+import TransactionForm from '@/components/TransactionForm';
 
 export default function MainContentWrapper({ data, categories, monthlyStats }: { data: any, categories: any[], monthlyStats: any[] }) {
     const [activeTab, setActiveTab] = useState<'activity' | 'metrics' | 'budgets'>('activity');
@@ -81,7 +82,12 @@ export default function MainContentWrapper({ data, categories, monthlyStats }: {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                         {activeTab === 'activity' ? (
-                            <Dashboard data={data} categories={categories} />
+                            <div className="space-y-12">
+                                <div className="lg:hidden">
+                                    <TransactionForm />
+                                </div>
+                                <Dashboard data={data} categories={categories} />
+                            </div>
                         ) : activeTab === 'metrics' ? (
                             <div className="space-y-16">
                                 <AnalyticsDashboard data={data} monthlyStats={monthlyStats} />
