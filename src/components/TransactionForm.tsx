@@ -93,6 +93,7 @@ export default function TransactionForm() {
                                 required
                                 type="number"
                                 step="0.01"
+                                inputMode="decimal"
                                 placeholder="0.00"
                                 value={formData.amount}
                                 onChange={(e) => setFormData({ ...formData, amount: e.target.value })}

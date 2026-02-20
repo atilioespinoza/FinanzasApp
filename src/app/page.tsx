@@ -28,8 +28,8 @@ export default async function Home({
         <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-emerald-600/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 py-12 md:py-16">
-        <header className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div className="relative max-w-7xl mx-auto px-6 pt-[env(safe-area-inset-top,24px)] pb-[env(safe-area-inset-bottom,24px)]">
+        <header className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="flex-1 space-y-2">
             <div className="flex items-center gap-2 mb-2">
               <div className="px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 flex items-center gap-2">
@@ -57,7 +57,7 @@ export default async function Home({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Main Content: Tabs for Activity/Metrics */}
-          <div className="lg:col-span-8 order-2 lg:order-1">
+          <div className="lg:col-span-8 order-2 lg:order-1 pb-32 md:pb-0">
             <MainContentWrapper data={data} categories={categories} monthlyStats={monthlyStats} />
           </div>
 

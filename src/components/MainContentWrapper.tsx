@@ -13,59 +13,61 @@ export default function MainContentWrapper({ data, categories, monthlyStats }: {
 
     return (
         <div className="space-y-8">
-            {/* Tab Switcher */}
-            <div className="flex p-1.5 bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/10 w-fit shadow-2xl">
-                <button
-                    onClick={() => setActiveTab('activity')}
-                    className={`flex items-center gap-2 px-6 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'activity'
-                        ? 'text-white'
-                        : 'text-slate-500 hover:text-slate-300'
-                        }`}
-                >
-                    {activeTab === 'activity' && (
-                        <motion.div
-                            layoutId="activeTab"
-                            className="absolute inset-0 bg-blue-600 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]"
-                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                        />
-                    )}
-                    <Activity size={14} className="relative z-10" />
-                    <span className="relative z-10">Actividad</span>
-                </button>
-                <button
-                    onClick={() => setActiveTab('metrics')}
-                    className={`flex items-center gap-2 px-6 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'metrics'
-                        ? 'text-white'
-                        : 'text-slate-500 hover:text-slate-300'
-                        }`}
-                >
-                    {activeTab === 'metrics' && (
-                        <motion.div
-                            layoutId="activeTab"
-                            className="absolute inset-0 bg-blue-600 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]"
-                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                        />
-                    )}
-                    <BarChart3 size={14} className="relative z-10" />
-                    <span className="relative z-10">Métricas</span>
-                </button>
-                <button
-                    onClick={() => setActiveTab('budgets')}
-                    className={`flex items-center gap-2 px-6 py-2 rounded-xl text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'budgets'
-                        ? 'text-white'
-                        : 'text-slate-500 hover:text-slate-300'
-                        }`}
-                >
-                    {activeTab === 'budgets' && (
-                        <motion.div
-                            layoutId="activeTab"
-                            className="absolute inset-0 bg-blue-600 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]"
-                            transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                        />
-                    )}
-                    <Target size={14} className="relative z-10" />
-                    <span className="relative z-10">Presupuestos</span>
-                </button>
+            {/* Tab Switcher - Now Responsive for Mobile (Sticky Bottom) or Desktop (Top) */}
+            <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:relative md:bottom-0 md:left-0 md:translate-x-0 w-[calc(100%-48px)] md:w-fit">
+                <div className="flex p-1.5 bg-[#0a0a1a]/80 backdrop-blur-3xl rounded-[28px] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-full md:w-fit">
+                    <button
+                        onClick={() => setActiveTab('activity')}
+                        className={`flex-1 md:flex-none flex items-center justify-center gap-2 px-4 md:px-6 py-3 md:py-2 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'activity'
+                            ? 'text-white'
+                            : 'text-slate-500 hover:text-slate-300'
+                            }`}
+                    >
+                        {activeTab === 'activity' && (
+                            <motion.div
+                                layoutId="activeTab"
+                                className="absolute inset-0 bg-blue-600 rounded-2xl shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                            />
+                        )}
+                        <Activity size={14} className="relative z-10" />
+                        <span className="relative z-10">Actividad</span>
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('metrics')}
+                        className={`flex-1 md:flex-none flex items-center justify-center gap-2 px-4 md:px-6 py-3 md:py-2 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'metrics'
+                            ? 'text-white'
+                            : 'text-slate-500 hover:text-slate-300'
+                            }`}
+                    >
+                        {activeTab === 'metrics' && (
+                            <motion.div
+                                layoutId="activeTab"
+                                className="absolute inset-0 bg-blue-600 rounded-2xl shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                            />
+                        )}
+                        <BarChart3 size={14} className="relative z-10" />
+                        <span className="relative z-10">Métricas</span>
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('budgets')}
+                        className={`flex-1 md:flex-none flex items-center justify-center gap-2 px-4 md:px-6 py-3 md:py-2 rounded-2xl text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 relative ${activeTab === 'budgets'
+                            ? 'text-white'
+                            : 'text-slate-500 hover:text-slate-300'
+                            }`}
+                    >
+                        {activeTab === 'budgets' && (
+                            <motion.div
+                                layoutId="activeTab"
+                                className="absolute inset-0 bg-blue-600 rounded-2xl shadow-[0_0_20px_rgba(37,99,235,0.4)]"
+                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                            />
+                        )}
+                        <Target size={14} className="relative z-10" />
+                        <span className="relative z-10">Presupuestos</span>
+                    </button>
+                </div>
             </div>
 
             {/* Conditional Content with Animation */}
