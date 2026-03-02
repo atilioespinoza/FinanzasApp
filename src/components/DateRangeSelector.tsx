@@ -30,8 +30,8 @@ export default function DateRangeSelector() {
 
     const defaultRange = getDefaultDates();
     const [range, setRange] = useState({
-        from: searchParams.get('from') || defaultRange.from,
-        to: searchParams.get('to') || defaultRange.to
+        from: searchParams.get('from') || '',
+        to: searchParams.get('to') || ''
     });
 
     const updateRange = (newRange: { from: string, to: string }) => {
