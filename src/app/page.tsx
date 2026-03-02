@@ -12,8 +12,24 @@ export default async function Home({
 }: {
   searchParams: { from?: string; to?: string };
 }) {
-  const from = searchParams.from;
-  const to = searchParams.to;
+  let from = searchParams.from;
+  let to = searchParams.to;
+
+  if (!from || !to) {
+    const now = new Date();
+    let fromDate, toDate;
+
+    if (now.getDate() >= 23) {
+      fromDate = new Date(now.getFullYear(), now.getMonth(), 23);
+      toDate = new Date(now.getFullYear(), now.getMonth() + 1, 22);
+    } else {
+      fromDate = new Date(now.getFullYear(), now.getMonth() - 1, 23);
+      toDate = new Date(now.getFullYear(), now.getMonth(), 22);
+    }
+
+    from = fromDate.toISOString().split('T')[0];
+    to = toDate.toISOString().split('T')[0];
+  }
 
   const data = await getSummary(from, to);
   const categories = await getCategories();
