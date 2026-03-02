@@ -29,10 +29,17 @@ export default function DateRangeSelector() {
     };
 
     const defaultRange = getDefaultDates();
+    const currentFrom = searchParams.get('from') || defaultRange.from;
+    const currentTo = searchParams.get('to') || defaultRange.to;
+
     const [range, setRange] = useState({
-        from: searchParams.get('from') || '',
-        to: searchParams.get('to') || ''
+        from: currentFrom,
+        to: currentTo
     });
+
+    useEffect(() => {
+        setRange({ from: currentFrom, to: currentTo });
+    }, [currentFrom, currentTo]);
 
     const updateRange = (newRange: { from: string, to: string }) => {
         const params = new URLSearchParams(searchParams.toString());
@@ -73,7 +80,7 @@ export default function DateRangeSelector() {
             <div className="flex gap-2 relative z-10">
                 <button
                     onClick={() => setPreset('current_cycle')}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-300 ${searchParams.get('from') === defaultRange.from
+                    className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-300 ${currentFrom === defaultRange.from && currentTo === defaultRange.to
                         ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                         : 'bg-white/5 text-slate-400 hover:text-white hover:bg-white/10'
                         }`}
@@ -83,7 +90,7 @@ export default function DateRangeSelector() {
                 </button>
                 <button
                     onClick={() => setPreset('this_month')}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-300 ${searchParams.get('from') !== defaultRange.from && searchParams.get('from') === new Date(new Date().getFullYear(), new Date().getMonth(), 1).toISOString().split('T')[0]
+                    className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-300 ${currentFrom !== defaultRange.from && currentFrom === new Date(new Date().getFullYear(), new Date().getMonth(), 1).toISOString().split('T')[0]
                         ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                         : 'bg-white/5 text-slate-400 hover:text-white hover:bg-white/10'
                         }`}

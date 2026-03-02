@@ -36,7 +36,7 @@ export default function BudgetControl({ categories, transactions }: { categories
 
     const periodLabel = from && to
         ? `${new Date(from + 'T12:00:00').toLocaleDateString()} al ${new Date(to + 'T12:00:00').toLocaleDateString()}`
-        : 'Histórico Completo';
+        : getDefaultCycle();
 
     const [editingId, setEditingId] = useState<string | null>(null);
     const [tempBudget, setTempBudget] = useState<string>('');
