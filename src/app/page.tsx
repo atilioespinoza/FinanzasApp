@@ -10,10 +10,11 @@ export const dynamic = 'force-dynamic';
 export default async function Home({
   searchParams,
 }: {
-  searchParams: { from?: string; to?: string };
+  searchParams: Promise<{ from?: string; to?: string }>;
 }) {
-  let from = searchParams.from;
-  let to = searchParams.to;
+  const params = await searchParams;
+  let from = params.from;
+  let to = params.to;
 
   if (!from || !to) {
     const now = new Date();
