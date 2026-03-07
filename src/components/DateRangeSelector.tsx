@@ -50,19 +50,28 @@ export default function DateRangeSelector() {
         router.push(`/?${params.toString()}`);
     };
 
-    const setPreset = (type: 'current_cycle' | 'this_month') => {
+    const setPreset = (type: 'current_cycle' | 'this_month' | 'this_year') => {
         let newRange;
         const now = new Date();
 
         if (type === 'current_cycle') {
             newRange = getDefaultDates();
-        } else {
+        } else if (type === 'this_month') {
             const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
             const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
             newRange = {
                 from: firstDay.toISOString().split('T')[0],
                 to: lastDay.toISOString().split('T')[0]
             };
+        } else if (type === 'this_year') {
+            const firstDay = new Date(now.getFullYear(), 0, 1);
+            const lastDay = new Date(now.getFullYear(), 11, 31);
+            newRange = {
+                from: firstDay.toISOString().split('T')[0],
+                to: lastDay.toISOString().split('T')[0]
+            };
+        } else {
+            newRange = getDefaultDates();
         }
 
         setRange(newRange);
@@ -77,7 +86,7 @@ export default function DateRangeSelector() {
         >
             <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
-            <div className="flex gap-2 relative z-10">
+            <div className="flex flex-wrap justify-center gap-2 relative z-10">
                 <button
                     onClick={() => setPreset('current_cycle')}
                     className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-300 ${currentFrom === defaultRange.from && currentTo === defaultRange.to
@@ -97,6 +106,16 @@ export default function DateRangeSelector() {
                 >
                     <LayoutGrid size={12} />
                     Mes Calendario
+                </button>
+                <button
+                    onClick={() => setPreset('this_year')}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-[10px] font-black uppercase tracking-[0.15em] transition-all duration-300 ${currentFrom !== defaultRange.from && currentFrom === new Date(new Date().getFullYear(), 0, 1).toISOString().split('T')[0] && currentTo === new Date(new Date().getFullYear(), 11, 31).toISOString().split('T')[0]
+                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
+                        : 'bg-white/5 text-slate-400 hover:text-white hover:bg-white/10'
+                        }`}
+                >
+                    <Calendar size={12} />
+                    Este Año
                 </button>
             </div>
 
